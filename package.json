@@ -1,6 +1,6 @@
 {
   "name": "dewmyth-auth-nestjs-mongo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "author": "",
   "private": false,
@@ -26,6 +26,8 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/mongoose": "^10.1.0",
     "@nestjs/platform-express": "^10.0.0",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.3",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"

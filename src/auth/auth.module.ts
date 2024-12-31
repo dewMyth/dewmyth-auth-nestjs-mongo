@@ -6,7 +6,6 @@ import { MONGO_CONNECTION_URI } from '../constants';
 import { UserSchema } from './schemas/user.schema';
 import { AuthModuleOptions } from './auth-module-options';
 
-@Global()
 // @Module({
 //   imports: [
 //     MongooseModule.forRoot(MONGO_CONNECTION_URI),
@@ -15,6 +14,8 @@ import { AuthModuleOptions } from './auth-module-options';
 //   controllers: [AuthController],
 //   providers: [AuthService],
 // })
+// export class AuthModule {}
+@Global()
 @Module({})
 export class AuthModule {
   static forRoot(options: AuthModuleOptions): DynamicModule {
