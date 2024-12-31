@@ -43,6 +43,8 @@ import { AuthService } from 'dewmyth-auth-nestjs-mongo';
 
 ##### Create a User
 
+A basic function that will accept the user's email, password, and username and return the created user. The created user will be saved on the mongodb database under the `users` collection. The password will be hashed using `bcrypt` before saving it to the database.
+
 ```typescript
   async createUser() {
     const newUser = await this.authService.createUser({
@@ -55,11 +57,27 @@ import { AuthService } from 'dewmyth-auth-nestjs-mongo';
 
 ##### Login a User
 
+A basic function that will accept the user's email and password and return the logged user. The function will check if the user exists in the database and if the password matches the hashed password in the database. If the user exists and the password matches, the user will be logged in and a token will be returned.
+
 ```typescript
   async loginUser() {
     const loggedUser = await this.authService.loginUser({
       email: 'sampleEmail@email.com'
       password: 'samplePassword',
     });
+  }
+```
+
+Optionally you can pass the JWT secret and the JWT expiration time in the options object. The default JWT secret
+
+```typescript
+  async loginUser() {
+    const loggedUser = await this.authService.loginUser({
+      email: 'sampleEmail@email.com'
+      password: 'samplePassword',
+    },
+  'sampleSecret', // The JWT secret
+  '1h', // The JWT expiration time, Please refere JWT documentation for more information
+    );
   }
 ```
